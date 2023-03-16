@@ -25,7 +25,6 @@ if __name__ == '__main__':
     x = torch.ones((batch_dim, input_dim))
     y = torch.ones((batch_dim, output_dim))
     LogRegModule = LogReg(input_dim, output_dim)
-    cloned_inputs = [x.clone().detach().requires_grad_(True)]
     AOTLogRegModule = memory_efficient_fusion(
         LogRegModule,
         fw_compiler=compiler_fn,
